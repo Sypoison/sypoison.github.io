@@ -24,7 +24,7 @@ copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creati
 
 ## [五.关联域名](#jump5)
 
-## [六.更新Blog](#jump6)
+## [六.更新Blog和备份环境文件](#jump6)
 
 ## [七.推荐内容](#jump7)
 
@@ -128,7 +128,7 @@ copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creati
    ![ip](https://i.loli.net/2020/10/15/iutNdgIF7o63Oyw.png)
 5.在本地Blog-->source-->_posts里面创建文件CNAME，里面填写你的域名，之后hexo g + d即可。
 
-## <span id="jump6">六.更新Blog<span>
+## <span id="jump6">六.更新Blog和备份环境文件<span>
 
 略，待补充。
 
