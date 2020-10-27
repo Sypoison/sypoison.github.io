@@ -5,6 +5,11 @@ commments: ture
 cover:  https://i.loli.net/2020/10/14/hU9Yj1yWGwkfHrP.png
 coverWidth: 1200
 coverHeight: 750
+categories:
+   - Hexo
+tags:
+   - Methods
+   - Ubuntu
 copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可'
 ---
 
@@ -102,9 +107,9 @@ copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creati
           ![img](https://i.loli.net/2020/10/15/H34MidBbFYxjefs.png)
 
      * 上面的repo也可以改为
-      ~~~bash
+     `
       git@github.com:yourname/yourname.github.io.git
-      ~~~
+     `
 
       两种方式都可能生效。
 3.推送到repo
@@ -138,4 +143,5 @@ copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creati
 * [SM.MS](https://sm.ms/)：很棒的图床网站。
 * [Typora](https://www.typora.io/)：三端通用的markdown编写神器。
 * [DNSPOD](https://console.dnspod.cn/)：腾讯旗下，提供免费DNS解析服务。
-* [Freenom](https://www.freenom.com/zh/index.html?lang=zh)：免费注册域名，到期前一段时间会提示免费续期，过期后只能花钱，因此注意邮箱提         示。
+* [Freenom](https://www.freenom.com/zh/index.html?lang=zh)：免费注册域名，到期前一段时间会提示免费续期，过期后只能花钱，因此注意邮箱提示。
+* [Awesome](https://wallhaven.cc/)：一个有着温暖故事的壁纸网站，完全免费，为情怀和纪念。
