@@ -1,5 +1,5 @@
 ---
-title: 此间的少年
+title: 东方欲晓，莫道君行早
 date: 2020/10/15  21:36:29
 comments: false
 permaLink: about.html
@@ -26,6 +26,11 @@ coverHeight: 750
 
 Blog待完善功能很多，后面慢慢尝试自己优化和完善。
 
-<b>目的是为了记录学习CS历程和成果。当然偶尔也会记录中二言论。</b>
+<b>目的是为了记录学习CS历程和成果。当然偶尔也会记录中二言论 (。-ω-)zzz。</b>
+
+最后，
+
+<blockquote><center><b>流年笑逝，未来可期。</b></center></blockquote>
 
 <p align="right">创建于2020年10月14日。</p>
+

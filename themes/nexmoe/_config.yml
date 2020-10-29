@@ -38,9 +38,9 @@ menu:
   关于博客:
     - /about.html
     - icon-info-circle
-  更多:
-   - /more.html
-   - icon-info-circle
+#  更多:
+#   - /more.html
+#   - icon-info-circle
 
 
 widgets:

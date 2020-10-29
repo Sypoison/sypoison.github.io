@@ -1,14 +1,14 @@
 ---
 title: Ubuntu构建Blog总结
 date: 2020/10/14  22:28:10
-commments: ture
+commments: false
 cover:  https://i.loli.net/2020/10/14/hU9Yj1yWGwkfHrP.png
 coverWidth: 1200
 coverHeight: 750
 categories:
    - Hexo
 tags:
-   - Methods
+   - Hexo
    - Ubuntu
 copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可'
 ---
@@ -107,9 +107,7 @@ copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creati
           ![img](https://i.loli.net/2020/10/15/H34MidBbFYxjefs.png)
 
      * 上面的repo也可以改为
-     `
-      git@github.com:yourname/yourname.github.io.git
-     `
+      `git@github.com:yourname/yourname.github.io.git`
 
       两种方式都可能生效。
 3.推送到repo
