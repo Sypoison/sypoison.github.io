@@ -1,8 +1,8 @@
 ---
 title: Mac Java环境变量配置
-date: 2020/10/28 19:48:10
+date: 2020/10/29 17:08:52
 comments: false
-cover: https://i.loli.net/2020/10/29/nYTbOgt61ZmJWQi.png
+cover: https://i.loli.net/2020/10/29/CnS9qr2btcygmGB.png
 coverHeight: 750
 coverWidth: 1200
 categories:
