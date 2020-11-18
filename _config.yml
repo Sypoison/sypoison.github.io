@@ -104,5 +104,5 @@ theme: nexmoe
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:sypoison/sypoison.github.io.git
+  repo: https://github.com/sypoison/sypoison.github.io.git
   branch: master

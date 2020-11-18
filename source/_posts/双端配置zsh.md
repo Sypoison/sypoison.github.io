@@ -107,3 +107,28 @@ copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creati
 
 `source incr*.zsh`
 
+### 11.注意：最好禁止oh-my-zsh在git的时候使用，会造成很强的不适感，终端极其卡顿！！！
+
+`git config oh-my-zsh.hide-status 1 //加上--global则在所有仓库均禁用`
+
+### 12.上才艺：
+
+<blockquote>没有一点点防备，<br>也没有一丝顾虑，
+你就这样出现，<br>在我的世界里，<br>
+带给我惊喜，情不自己,<br>
+克隆，提交代码是出现问题:
+  <br>
+  <i>ssh: connect to host github.com port 22: connection timed out</i>
+</blockquote>
+
+检查了很久的问题，根据网上更改全部无效，包括：
+
+1. 新建config，添加host，最后刷新。
+
+2. 使用git remote命令，直接无效。
+
+3. 更改***.config***文件下的deploy中git@github.com为https模式(这个不知道)
+
+4. 在Mac证书管理中将git提交设为总是允许。(关键，唉，o(╥﹏╥)o)
+
+   
