@@ -1,8 +1,8 @@
 ---
-title: Mac+Ubuntu双端
+title: 双端配置zsh
 date: 2020/11/ 22:07:21
 comments: false
-cover: https://i.loli.net/2020/10/29/CnS9qr2btcygmGB.png
+cover:  https://i.loli.net/2020/11/18/7PFs4dTyvYVlCMz.png
 coverHeight: 750
 coverWidth: 1200
 categories:

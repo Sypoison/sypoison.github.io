@@ -13,7 +13,7 @@ tags:
 copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可'
 ---
 
-配置通过IDEA下载的OpenJDK的Java环境，实现vscode编写Java
+***配置通过IDEA下载的OpenJDK的Java环境，实现vscode编写Java***
 
 <!--more-->
 

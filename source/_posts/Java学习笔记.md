@@ -2,7 +2,7 @@
 title: Java学习笔记
 date: 2020/10/29 17:08:52
 comments: false
-cover: https://i.loli.net/2020/10/29/CnS9qr2btcygmGB.png
+cover: https://i.loli.net/2020/11/18/gtPfxuA1CHYLoWi.png
 coverHeight: 750
 coverWidth: 1200
 categories:
