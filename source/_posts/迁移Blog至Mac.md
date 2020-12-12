@@ -1,6 +1,7 @@
 ---
 title: Mac Blog迁移
 date: 2020/10/27 22:28:29
+updated: 2020/12/12 00:25:56
 comments: false
 cover: https://i.loli.net/2020/10/27/P6yklAhcmjKevFW.png
 coverHeight: 750
@@ -127,5 +128,6 @@ copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creati
 `defaults write com.apple.finder AppleShowAllFiles -boolean false;killall Finder //隐藏隐藏文件`
 建议使用完后还是恢复隐藏属性*
 
+*注意:再次托管前，应该在package.json文件中获取以前的插件信息，然后用cnpm安装。*
 
 *hu~\(^o^)/~终于写完了……每一次记录都是一次进步，*
