@@ -160,7 +160,7 @@ copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creati
 补充：Linux中通用查找命令：
 
 1. `find /* -name "*name*" //使用通配符增加范围`
-
 2. flameshot gui 为flameshot的快捷建命令。
-
 3. Swithyomega插件商店里的不能用，建议使用github中文件，然后使用命令行解压（oh-my-zsh自带extract万能解压命令），然后加载。
+4. 初始安装的时候分区不合理(/30G根本不够用，/hmoe也有点小)，于是选择将未分区位置分配到这两个分区，使用Gparted（默认安装的图形化界面），在U盘启动盘启动(即安装时的写入镜像)，打开，密码默认为manjaro，进行二次分区即可。原因是Gparted无法对正在运行的分区操作，当然也可以命令行进行，只是怕分错了出事。。。
+5. 最近每次hexo d都要代理，挺烦的。
