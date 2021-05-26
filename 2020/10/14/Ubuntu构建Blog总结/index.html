@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  
+  <title>Ubuntu构建Blog总结 - --凡是过往,皆为序章--</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="通过Ubuntu自带bash和Github可以快速搭建Blog，本文全程介绍了我在搭建Blog时的操作和遇到的问题和纠正，旨在记录并备份，解决方法大部分来自论坛和官网。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu构建Blog总结">
+<meta property="og:url" content="https://sypoison.github.io/2020/10/14/Ubuntu%E6%9E%84%E5%BB%BABlog%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="--凡是过往,皆为序章--">
+<meta property="og:description" content="通过Ubuntu自带bash和Github可以快速搭建Blog，本文全程介绍了我在搭建Blog时的操作和遇到的问题和纠正，旨在记录并备份，解决方法大部分来自论坛和官网。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/10/15/OGNWUrA6bjL9mKM.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/15/zqiam1326THFCXL.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/15/JvAFkaMuHbxoe2n.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/15/H34MidBbFYxjefs.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/15/iutNdgIF7o63Oyw.png">
+<meta property="article:published_time" content="2020-10-14T14:28:10.000Z">
+<meta property="article:modified_time" content="2021-05-26T14:11:38.090Z">
+<meta property="article:author" content="Sypoison">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Ubuntu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/10/15/OGNWUrA6bjL9mKM.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+  <link rel="stylesheet" href="/css/style.css?v=1622042365225">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1622042365225">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1622042365225">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="Sypoison" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="Sypoison"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Sypoison">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="Sypoison" alt="Sypoison">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>8</div>
+        <div><span>Tags</span>9</div>
+        <div><span>Categories</span>6</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Hexo/">Hexo</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Mac/">Mac</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Manjaro/">Manjaro</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Math/">Math</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Mac/Ubuntu/">Ubuntu</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/Manjaro/" style="font-size: 10px;">Manjaro</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Problems/" style="font-size: 15px;">Problems</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+    </div>
+    
+  </div>
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 Sypoison
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+
+  <article>
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+            <img data-src="https://i.loli.net/2020/10/14/hU9Yj1yWGwkfHrP.png" data-sizes="auto" alt="Ubuntu构建Blog总结" class="lazyload">
+            <h1>Ubuntu构建Blog总结</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月14日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.3k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 5 分钟</a>
+</div>
+
+    
+
+    <p><em>通过Ubuntu自带bash和Github可以快速搭建Blog，本文全程介绍了我在搭建Blog时的操作和遇到的问题和纠正，旨在记录并备份，解决方法大部分来自论坛和官网。</em></p>
+<span id="more"></span>
+
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="一-前言"><a href="#一-前言" class="headerlink" title="一.前言"></a><a href="#jump1">一.前言</a></h2><h2 id="二-准备工作"><a href="#二-准备工作" class="headerlink" title="二.准备工作"></a><a href="#jump2">二.准备工作</a></h2><h2 id="三-搭建Blog"><a href="#三-搭建Blog" class="headerlink" title="三.搭建Blog"></a><a href="#jump3">三.搭建Blog</a></h2><h2 id="四-更换主题和配置"><a href="#四-更换主题和配置" class="headerlink" title="四.更换主题和配置"></a><a href="#jump4">四.更换主题和配置</a></h2><h2 id="五-关联域名"><a href="#五-关联域名" class="headerlink" title="五.关联域名"></a><a href="#jump5">五.关联域名</a></h2><h2 id="六-更新Blog和备份环境文件"><a href="#六-更新Blog和备份环境文件" class="headerlink" title="六.更新Blog和备份环境文件"></a><a href="#jump6">六.更新Blog和备份环境文件</a></h2><h2 id="七-推荐内容"><a href="#七-推荐内容" class="headerlink" title="七.推荐内容"></a><a href="#jump7">七.推荐内容</a></h2><hr>
+# 正文
+
+<h2 id="一-前言-1"><a href="#一-前言-1" class="headerlink" title="一.前言"></a><span id="jump1">一.前言<span></h2><ul>
+<li>开始使用<em>Wordpress</em>建站，非常方便，可是在未买云服务器时没法实现外部访问，于是采用跟<em>Windows</em>下相同方法利用<em>Github</em>和<em>hexo</em>建立个人博客，采用模板为<a target="_blank" rel="noopener" href="https://docs.nexmoe.com/hexo-nexmoe/start">nexmoe</a>。</li>
+<li><em>Ubuntu</em>使用命令行创建速度显然快于<em>Windows</em>下</li>
+<li>使用hexo建站过程出现过几处由于Github帐户设置和本地文件设置的问题进行了归档 处理。</li>
+<li>所有命令大都需要在root环境运行，因此建议提前进入root模式或者每行命令加sudo</li>
+</ul>
+<h2 id="二-准备工作-1"><a href="#二-准备工作-1" class="headerlink" title="二.准备工作"></a><span id="jump2">二.准备工作<span></h2><ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.freenom.com/zh/index.html?lang=zh">Freenom</a>申请域名(注意免费续期)</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i.loli.net/2020/10/15/OGNWUrA6bjL9mKM.png" alt="image" class="lazyload"></p>
+<p>注意：</p>
+<ul>
+<li>Google登录时地址必须在美国。</li>
+<li>不能直接结算，必须先修改个人信息，地址必须填美国ip对应城市，州，邮编，具体地址，电话号码等(部分可以乱填)。</li>
+<li>关闭浏览器广告插件，以免显示不正确。</li>
+</ul>
+</li>
+<li><p>注册<a target="_blank" rel="noopener" href="https://github.com/">Github</a></p>
+<ul>
+<li><p>创建新repository，<em>将仓库名称设置为 yourname.github.io</em></p>
+</li>
+<li><p>在浏览器地址栏输入仓库名，不报错代表成功。</p>
+</li>
+<li><p>设置邮箱为可见Email–&gt;Block command line pushs …取消打勾。</p>
+<p>解决error: 推送一些引用到 ‘git@github.com:xxxx.github.io.git’ 失败</p>
+</li>
+</ul>
+</li>
+<li><p>配置git(<em>注意：所有命令需要在root环境运行，即每个命令加sudo</em>)<br><code>$ apt install git// 安装git</code><br><code>$ git --version//检测git版本</code><br><code>$ git config --global user.name &quot;yourname&quot; //设置git目标用户(github帐户名)</code><br><code>$ git config --global user.email &quot;youremail&quot; //设置git目标邮箱(github帐户注册邮箱)</code></p>
+</li>
+<li><p>配置nodejs(<em>注意：国内速度可能很感人</em>)</p>
+<p><code>$ sudo apt install nodejs  //安装nodejs(国内可能速度很慢)</code><br><code>$ sudo apt install npm  //安装nodejs的包管理工具</code><br><code>$ sudo npm install npm -g //升级新版npm</code><br><code>$ sudo npm install hexo-cli -g //安装hexo</code><br><code>$ sudo npm install --save hexo-deployer-git //解决ERROR Deployer not    found:git</code></p>
+</li>
+</ol>
+<h2 id="三-搭建Blog-1"><a href="#三-搭建Blog-1" class="headerlink" title="三.搭建Blog"></a><span id="jump3">三.搭建Blog<span></h2><ol>
+<li><p>本地网页设置<br>   <em>注意：</em>所有的hexo命令必须在Blog文件下打开才有效。<br><code>$ sudo mkdir /home/yourname(即计算机用户名)/Blog    /*新建文件夹Blog(区别touch和mkdir)*/</code><br><code>$ sudo hexo init url /*url指代上面创建的文件。*/</code><br><code>$ sudo hexo g   /*生成静态网页。*/</code><br><code>$ sudo hexo s  /*启动本地服务器，可以在浏览器打开http://localhost:4000/。注意如果启动失败，显示启动//失败，则输入下面命令：*/</code><br><code>$ sudo hexo s -p 8000  /*8000指代端口，可以随意填写，应付4000被占用的情况*/</code><br><code>$ sudo ssh-keygen -t rsa -C &quot;youremail&quot;  /*生成ssh公钥和私钥，提示文件存储位置，直接默认。提示输入密码，直接两次回车，不需要密码。打开文件管理，进入目标目录，设置中设置显示隐藏文件，打开id_rsa.pub，复制全部内容，填写到github设置中添加新的ssh公钥，名称随便。*/</code><br><code>$ ssh -T git@github.com  //出现yes/no时选择yes(可能没有此提示)，最后会有Hi…</code></p>
+</li>
+<li><p>配置_config.yml      </p>
+<ul>
+<li><p>注意，下面修改都需要终端修改，也可以终端赋予权限后修改。</p>
+</li>
+<li><p>修改<em>author</em></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://i.loli.net/2020/10/15/zqiam1326THFCXL.png" alt="img" class="lazyload"></p>
+</li>
+<li><p>修改<em>url</em></p>
+<p> <img data-fancybox="gallery" data-sizes="auto" data-src="https://i.loli.net/2020/10/15/JvAFkaMuHbxoe2n.png" alt="img" class="lazyload"></p>
+</li>
+<li><p>修改Deployment</p>
+<p>   <img data-fancybox="gallery" data-sizes="auto" data-src="https://i.loli.net/2020/10/15/H34MidBbFYxjefs.png" alt="img" class="lazyload"></p>
+</li>
+<li><p>上面的repo也可以改为<br><code>git@github.com:yourname/yourname.github.io.git</code></p>
+</li>
+</ul>
+<p>   两种方式都可能生效。</p>
+</li>
+<li><p>推送到repo<br>  <code>$ sudo hexo cl //清除缓存</code><br>  <code>$ hexo g //生成静态网页</code><br>  <code>$ hexo d //推送到repo，可能出现问题ERROR Deployer not found: git，输入下面一行命令：</code><br>  <code>$ sudo install --save hexo-deployer-git//此后可能需要重新配置git</code></p>
+</li>
+<li><p>地址栏输入yourname.github.io，成功进入则代表成功。此时，你已经有了你的个人Blog。</p>
+<h2 id="四-更换主题及配置"><a href="#四-更换主题及配置" class="headerlink" title="四.更换主题及配置"></a><span id="jump4">四.更换主题及配置<span></h2></li>
+</ol>
+<ul>
+<li>直接点击<a target="_blank" rel="noopener" href="https://docs.nexmoe.com/hexo-nexmoe/start">nexmoe</a>即可，其它主题类似，你可以在Hexo官网找到更多主题。</li>
+<li>配置主题需要在theme中的_config.yml和Blog的 _config.yml进行配置，注意备份。<h2 id="五-关联域名-1"><a href="#五-关联域名-1" class="headerlink" title="五.关联域名"></a><span id="jump5">五.关联域名<span></h2></li>
+</ul>
+<ol>
+<li>将申请到的域名在Freenom中更改，添加DNSPOD的解析服务。</li>
+<li>获取你的的网站ip：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping yourname.github.io</span><br></pre></td></tr></table></figure></li>
+<li>注册DNSPOD，注意先实名，然后腾讯可能会给你打电话，直说即可。</li>
+<li>在DNSPOD解析服务中添加你的域名和IP<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://i.loli.net/2020/10/15/iutNdgIF7o63Oyw.png" alt="ip" class="lazyload"></li>
+<li>在本地Blog–&gt;source–&gt;_posts里面创建文件CNAME，里面填写你的域名，之后hexo g + d即可。</li>
+</ol>
+<h2 id="六-更新Blog和备份环境文件-1"><a href="#六-更新Blog和备份环境文件-1" class="headerlink" title="六.更新Blog和备份环境文件"></a><span id="jump6">六.更新Blog和备份环境文件<span></h2><p>略，待补充。</p>
+<h2 id="七-推荐内容-1"><a href="#七-推荐内容-1" class="headerlink" title="七.推荐内容"></a><span id="jump7">七.推荐内容<span></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nexmoe.com/hexo-nexmoe/start">nexmoe</a>：很好的主题介绍网站。</li>
+<li><a target="_blank" rel="noopener" href="https://sm.ms/">SM.MS</a>：很棒的图床网站。</li>
+<li><a target="_blank" rel="noopener" href="https://www.typora.io/">Typora</a>：三端通用的markdown编写神器。</li>
+<li><a target="_blank" rel="noopener" href="https://console.dnspod.cn/">DNSPOD</a>：腾讯旗下，提供免费DNS解析服务。</li>
+<li><a target="_blank" rel="noopener" href="https://www.freenom.com/zh/index.html?lang=zh">Freenom</a>：免费注册域名，到期前一段时间会提示免费续期，过期后只能花钱，因此注意邮箱提示。</li>
+<li><a target="_blank" rel="noopener" href="https://wallhaven.cc/">Awesome</a>：一个有着温暖故事的壁纸网站，完全免费，为情怀和纪念。</li>
+</ul>
+
+  </article>
+
+  
+    
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>Sypoison<br>
+    <strong>Link：</strong><a href="https://sypoison.github.io/2020/10/14/Ubuntu%E6%9E%84%E5%BB%BABlog%E6%80%BB%E7%BB%93/" title="https:&#x2F;&#x2F;sypoison.github.io&#x2F;2020&#x2F;10&#x2F;14&#x2F;Ubuntu%E6%9E%84%E5%BB%BABlog%E6%80%BB%E7%BB%93&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;sypoison.github.io&#x2F;2020&#x2F;10&#x2F;14&#x2F;Ubuntu%E6%9E%84%E5%BB%BABlog%E6%80%BB%E7%BB%93&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/Hexo/">Hexo</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Hexo/" rel="tag">Hexo</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
+</div>
+        <div class="nexmoe-post-right">
+          <div class="nexmoe-fixed">
+            <div class="nexmoe-tool"> 
+              
+                
+              
+              <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+ 
+
+<script src="/js/app.js?v=1622042365226"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+
+
+
+
+
+</body>
+
+</html>

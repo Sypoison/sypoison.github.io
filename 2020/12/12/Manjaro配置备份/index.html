@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  
+  <title>Manjaro配置备份 - --凡是过往,皆为序章--</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="一切源于手贱，删了Ubuntu之后再也安装不上了，于是选择了对硬件支持更好的Manjaro，前者跟N卡有仇，后者可以直接安装，之后进行了一些问题修复和美化，基本外观与Mac相似，同时附带一些应用安装的解决方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manjaro配置备份">
+<meta property="og:url" content="https://sypoison.github.io/2020/12/12/Manjaro%E9%85%8D%E7%BD%AE%E5%A4%87%E4%BB%BD/index.html">
+<meta property="og:site_name" content="--凡是过往,皆为序章--">
+<meta property="og:description" content="一切源于手贱，删了Ubuntu之后再也安装不上了，于是选择了对硬件支持更好的Manjaro，前者跟N卡有仇，后者可以直接安装，之后进行了一些问题修复和美化，基本外观与Mac相似，同时附带一些应用安装的解决方案。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/12/13/e1aqIbvLpFtcY6u.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/13/E8SCJigZIU5HVDG.png">
+<meta property="article:published_time" content="2020-12-12T11:33:29.000Z">
+<meta property="article:modified_time" content="2021-05-26T14:11:38.090Z">
+<meta property="article:author" content="Sypoison">
+<meta property="article:tag" content="Manjaro">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/12/13/e1aqIbvLpFtcY6u.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+  <link rel="stylesheet" href="/css/style.css?v=1622042365218">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1622042365218">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1622042365218">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="Sypoison" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="Sypoison"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Sypoison">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="Sypoison" alt="Sypoison">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>8</div>
+        <div><span>Tags</span>9</div>
+        <div><span>Categories</span>6</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Hexo/">Hexo</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Mac/">Mac</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Manjaro/">Manjaro</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Math/">Math</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Mac/Ubuntu/">Ubuntu</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/Manjaro/" style="font-size: 10px;">Manjaro</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Problems/" style="font-size: 15px;">Problems</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+    </div>
+    
+  </div>
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 Sypoison
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+
+  <article>
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+            <img data-src="https://i.loli.net/2020/12/13/xUBrYMig6QhvPZa.png" data-sizes="auto" alt="Manjaro配置备份" class="lazyload">
+            <h1>Manjaro配置备份</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年12月12日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 9 分钟</a>
+</div>
+
+    
+
+    <p>一切源于手贱，删了Ubuntu之后再也安装不上了，于是选择了对硬件支持更好的Manjaro，前者跟N卡有仇，后者可以直接安装，之后进行了一些问题修复和美化，基本外观与Mac相似，同时附带一些应用安装的解决方案。</p>
+<span id="more"></span>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="一-前言：比较Manjaro的三种发行版"><a href="#一-前言：比较Manjaro的三种发行版" class="headerlink" title="一.前言：比较Manjaro的三种发行版"></a><a href="#jump1">一.前言：比较Manjaro的三种发行版</a></h2><h2 id="二-安装：Manjaro-xfce"><a href="#二-安装：Manjaro-xfce" class="headerlink" title="二.安装：Manjaro xfce"></a><a href="#jump2">二.安装：Manjaro xfce</a></h2><h2 id="三-系统问题与修复"><a href="#三-系统问题与修复" class="headerlink" title="三.系统问题与修复"></a><a href="#jump3">三.系统问题与修复</a></h2><h2 id="四-系统安装后的最初配置"><a href="#四-系统安装后的最初配置" class="headerlink" title="四.系统安装后的最初配置"></a><a href="#jump4">四.系统安装后的最初配置</a></h2><h2 id="五-美化"><a href="#五-美化" class="headerlink" title="五.美化"></a><a href="#jump5">五.美化</a></h2><h2 id="六-尾声"><a href="#六-尾声" class="headerlink" title="六.尾声"></a><a href="#jump6">六.尾声</a></h2><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一-前言"><a href="#一-前言" class="headerlink" title="一.前言"></a><span id="jump1">一.前言<span></h2><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://i.loli.net/2020/12/13/e1aqIbvLpFtcY6u.png" alt="成品" class="lazyload"></p>
+<ul>
+<li>本次先后体验了kde，gnome，xfce版本，感觉各不相同：<ul>
+<li>kde:可定制极高，可是内容太多反而感觉体验不好，太花里胡哨了。</li>
+<li>gnome:安装失败，无法启动，但从安装见面来看，类似Mac界面，比Ubuntu更美观。</li>
+<li>xfce:很简单的一个版本，但同样支持基本的个性化定制。</li>
+</ul>
+</li>
+<li>最终将kde搞得异常花里胡哨后转战xfce，由于过于简单，出现一些问题，网上无法找到大量使用案例，只能不断尝试。<h2 id="二-安装"><a href="#二-安装" class="headerlink" title="二.安装"></a><span id="jump2">二.安装<span></h2></li>
+</ul>
+<ol>
+<li>官方下载xfce精简版，会自动从中国最快源下载镜像。</li>
+<li>使用rufus写入镜像，默认设置即可。注意：安装过程最好断网。以防更新卡死。</li>
+<li>U盘启动的的第一个默认界面，驱动选择私有驱动。</li>
+<li>分区注意：选择efi区(500m)，格式为fat32，标记/boot，挂载/boot/efi其余空间类似ubuntu自由分配,/home(100g+)大一点就行 </li>
+<li>进行安装前的基本设置，而后进入安装。注：这里设置密码最后不要带字母，因为发现后面输入终端sudo的时候，会显示输入错误，但是可以passwd改密码。<h2 id="三-系统问题与修复-1"><a href="#三-系统问题与修复-1" class="headerlink" title="三.系统问题与修复"></a><spam id="jump3">三.系统问题与修复<spam></h2></li>
+</ol>
+<ul>
+<li>无法输出声音<ol>
+<li><code>aplay -l   //检查声卡驱动是否存在，结果中不能全是HDMI</code><img data-fancybox="gallery" data-sizes="auto" data-src="https://i.loli.net/2020/12/13/E8SCJigZIU5HVDG.png" alt="输出" class="lazyload"></li>
+<li><code>sudo pacman -S sof-firmware  //上一步显示没有声卡时，安装声卡驱动</code></li>
+<li><code>sudo nano ~/.asoundrc  //编辑该文件</code></li>
+<li>在~/.asoundrc文件下写入下面内容:<br> <code>defaults.pcm.card 0</code><br> <code>default.pcm.device 0</code><br> <code>defaults.ctl.card 0</code><br> care 0 /device 0由上面aplay -l输出显示声卡具体位置。重启即可。</li>
+</ol>
+</li>
+<li>无法显示表情和特殊符号，以致于终端主题和输入法显示不全。<br>此问题困扰我很长时间，最终在<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30895603/article/details/96442211">xfce安装字体</a>找到类似答案。<br>不同的是我使用的是***<a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts">Nerd-fonts</a>***，在release选择想要的下载即可。<br>具体流程：</li>
+</ul>
+<ol>
+<li>解压下载好的字体包。</li>
+<li>拷贝字体文件夹到目录<code>usr/share/fonts</code></li>
+<li>创建字体缓存：<br> <code>mkfontscale  //在当前目录生成fonts.scale</code><br> <code>mkfontdir  //在当前目录生成fonts.dir</code><br> <code>fc-cache -fv  //重建字体缓存</code></li>
+<li>设置–&gt;外观–&gt;字体–&gt;选择目标字体即可，终端可以直接选择使用系统字体。<br>终于不会显示乱码了，值得一提的是：<br>设置–&gt;Manjaro Settings Manager里面有语言包，可以安装额外的补充语音包。<br>注意：即使你更换字体，显示正常，在字体那里的预览依然不会显示正确，而这是xfce独有的，kde我未遇到。<h2 id="四-系统安装后的最初配置-1"><a href="#四-系统安装后的最初配置-1" class="headerlink" title="四.系统安装后的最初配置"></a><span id="jump4">四.系统安装后的最初配置<span></h2></li>
+</ol>
+<ul>
+<li>注意：本环节参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114296129">Manjaro-KDE配置全攻略</a>，并对部分不适合xfce和本系统的环节进行了修正。</li>
+</ul>
+<ol>
+<li>换官方镜像源：<br> <code>sudo pacman-mirrors -i -c China -m ranl //在弹窗中选择一个即可</code></li>
+<li>换arch源：<br> <code>sudo nano /etc/pacman.conf //编辑该文件，输入以下内容：</code><br> <code>[archlinuxcn]</code><br> <code>Server = http://mirrors.163.com/archlinux-cn/$arch</code><br> 注意：arch的源更新比manjaro快，部分会不兼容。比如Qv2ray。</li>
+<li>更新系统：<br> <code>sudo pacmam -Syyu</code></li>
+<li>添加本地arch库和钥匙串(如果进行了步骤2)：<br> <code>sudo pacman -S archlinuxcn-keyring</code></li>
+<li>安装aur助手：</li>
+</ol>
+<ul>
+<li>AUR具有很多第三方软件，属实NB。<br>  <code>sudo pacman -S yaourt //安装yaourt，以后直接用yaourt安装软件。</code></li>
+<li>注意:并不推荐<code>yay</code>命令，yay虽然简单，但很多软件都没办法搜到。</li>
+</ul>
+<ol start="6">
+<li>安装Rime输入法：</li>
+</ol>
+<ul>
+<li>安装fcitx5框架：<code>yaourt -S fcitx5-im //回车，默认安装fcitx5框架下所有内容</code></li>
+<li>配置fictx5环境变量：<code>nano ~/.pam_enviroment</code><br>  输入：<br>  <code>INPUT_METHOD  DEFAULT=fcitx5</code><br>  <code>GTK_IM_MODULE DEFAULT=fcitx5</code><br>  <code>QT_IM_MODULE  DEFAULT=fcitx5</code><br>  <code>XMODIFIERS    DEFAULT=\@im=fcitx5</code></li>
+<li>安装rime输入引擎：<br><code>yaourt -S fcitx5-rime</code><br><code>这里需要重启一下</code><ul>
+<li>安装<a target="_blank" rel="noopener" href="https://github.com/fkxxyz/rime-cloverpinyin/wiki/linux">clover输入方案</a>：<br>注意：这里直接yay安装会不成功，建议从<a target="_blank" rel="noopener" href="https://github.com/fkxxyz/rime-cloverpinyin/releases">Github仓库</a>下载源文件,解压，将文件夹的内容，移动到用户资料夹<code>~/.local/share/fcitx5/rime/</code></li>
+<li>在用户资料夹下创建default.custom.yaml，内容：<br><code>patch:</code><br><code>  &quot;menu/page_size&quot;: 5</code>  <code>5表示候选字个数，可以为1-9</code><br><code>  schema_list:</code><br><code>    - schema: clover</code></li>
+<li>配置主题<a target="_blank" rel="noopener" href="https://github.com/hosxy/Fcitx5-Material-Color">Fcitx5-Material-Color</a></li>
+<li>注意：修改输出候选栏大小只能在主题文件相关配置中修改为9或8。</li>
+<li>重启，在fcitx5配置里面将rime移到第一。</li>
+</ul>
+</li>
+<li>oh-my-zsh，见前面blog，注意incr很卡，在输入https://时<ul>
+<li>切换zsh主题为pure<br>下载pure主题，解压，进入目录。<br><code>ln -s pure/pure.zsh-theme . #这一行好像不需要</code><br><code>ln -s pure/async.zsh . </code><br>～/.zshrc中将主题更改为<code>refined</code></li>
+</ul>
+</li>
+<li>QQ/Tim<br>  弄了很久，最后才知道早就有大佬搞出来AppImage了<br>  <a target="_blank" rel="noopener" href="https://github.com/askme765cs/Wine-QQ-TIM/releases/tag/v1.0">地址</a><br>  怕以后又没了，已经fork。</li>
+<li>Qv2ray<br>  添加链接后始终无法上google，这个想了好久，在tg上也在官方找，没找到，最后猜想xfce不支持系统直接代理，于是chrome采用switchyomega（插件），shell使用on-my-zsh中zsh-proxy插件。<br>  毕竟以前就是即点即用的说🤕️。</li>
+<li>wireguard<br>  <code>sudo uname -a  //查看系统内核，我的是5.9</code><br>  <code>sudo yaourt -S linux-headers //安装对应版本</code><br>  <code>sudo pacman -S wireguard-tools //安装wireguard</code><br>  <code>将conf文件移到/etc/wireguard/目录下</code><br>  <code>sudo wg-quick up name //启用name.conf</code><br>  <code>sudo wg-quick down name //断开</code><h2 id="五-美化-1"><a href="#五-美化-1" class="headerlink" title="五.美化"></a><span id="jump5">五.美化<span></h2></li>
+<li>dock栏<pre><code>商店设置打开aur源，搜索plank，安装，启动，注意添加启动器的方法，在/usr/bin/下找，或者编辑应用程序中查看位置。Ctrl+鼠标右键进入首选项设置。
+</code></pre>
+</li>
+<li>主题：<br>  直接使用Ubuntu下的gnome主题和图标。</li>
+<li>全局菜单栏(vala-panel-appmenu)：<pre><code>![上图](https://i.loli.net/2020/12/13/1xikJYDhtUI2wNr.png)
+商店搜索下面包：
+`vala-panel-appmenu-common`
+`vala-panel-appmenu-registrar`
+`vala-panel-appmenu-xfce`
+`appmenu-gtk-module`
+运行：
+`xfconf-query -c xsettings -p /Gtk/ShellShowsMenubar -n -t bool -s truexfconf-query -c xsettings -p /Gtk/ShellShowsAppmenu -n -t bool -s true`
+
+    面板--&gt;首选项--&gt;关闭锁定面板，将其拖到上方并锁定.
+    面板--&gt;首选项--&gt;项目--&gt;配置面板插件
+    举例：
+    whisker菜单，双击，进入配置--&gt;面板按钮--&gt;图标，双击下方正方形，选择图标（推荐easyicon）
+    分隔符--&gt;样式：透明度，点击启用扩展成为空格键，调整面板高度和增添分隔符个数将日期移到中间。添加全局菜单。
+    窗口管理器微调--&gt;合成器。取消在弹窗下显示阴影和dock下显示阴影。
+    LightDM桌面管理器设置锁屏和登录壁纸和显示图像，勾选使用用户头像，将壁纸文件移动到默认固定路径，不会出现黄色三角符号即代表成功。
+    大致如此，其余微调不管了。
+</code></pre>
+<h2 id="六-尾声-1"><a href="#六-尾声-1" class="headerlink" title="六.尾声"></a><span id="jump6">六.尾声<span></h2>补充一下，重建Blog时依然出现了同样的错误，+v查看详细，最后赋予777解决。<br>结束了，不仅是这个折腾过程，也是这个学期。<br>想来大多时间在玩，在折腾这些，反而失去了根本。<br>接下来不会换系统了，静下心来学java。</li>
+</ul>
+<p>补充：Linux中通用查找命令：</p>
+<ol>
+<li><code>find /* -name &quot;*name*&quot; //使用通配符增加范围</code></li>
+<li>flameshot gui 为flameshot的快捷建命令。</li>
+<li>Swithyomega插件商店里的不能用，建议使用github中文件，然后使用命令行解压（oh-my-zsh自带extract万能解压命令），然后加载。</li>
+<li>初始安装的时候分区不合理(/30G根本不够用，/hmoe也有点小)，于是选择将未分区位置分配到这两个分区，使用Gparted（默认安装的图形化界面），在U盘启动盘启动(即安装时的写入镜像)，打开，密码默认为manjaro，进行二次分区即可。原因是Gparted无法对正在运行的分区操作，当然也可以命令行进行，只是怕分错了出事。。。</li>
+<li>最近每次hexo d都要代理，挺烦的。</li>
+</ol>
+
+  </article>
+
+  
+    
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>Sypoison<br>
+    <strong>Link：</strong><a href="https://sypoison.github.io/2020/12/12/Manjaro%E9%85%8D%E7%BD%AE%E5%A4%87%E4%BB%BD/" title="https:&#x2F;&#x2F;sypoison.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;Manjaro%E9%85%8D%E7%BD%AE%E5%A4%87%E4%BB%BD&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;sypoison.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;Manjaro%E9%85%8D%E7%BD%AE%E5%A4%87%E4%BB%BD&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/Manjaro/">Manjaro</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Linux/" rel="tag">Linux</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Manjaro/" rel="tag">Manjaro</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
+</div>
+        <div class="nexmoe-post-right">
+          <div class="nexmoe-fixed">
+            <div class="nexmoe-tool"> 
+              
+                
+              
+              <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+ 
+
+<script src="/js/app.js?v=1622042365219"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
